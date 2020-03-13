@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">JoynPrototype</string>
+    <string name="get_otp">Get Otp</string>
+    <string name="_812345678">81234567892</string>
+    <string name="login">Login</string>
+    <string name="image_content">image_content</string>
+    <string name="register">Register</string>
+    <string name="joyn_resto">Joyn-Resto</string>
+    <string name="improve_your_culinary_business">improve your culinary business</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

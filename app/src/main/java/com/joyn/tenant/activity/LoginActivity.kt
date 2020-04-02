@@ -6,7 +6,6 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.joyn.tenant.R
-import com.joyn.tenant.model.login.ResponseLogin
 import com.joyn.tenant.network.Initretrofit
 import kotlinx.android.synthetic.main.layout_field_login.*
 import org.json.JSONObject

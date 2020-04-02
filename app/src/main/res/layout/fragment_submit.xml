@@ -1,14 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.fragment.SubmitFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.joyn.tenant.activity.fragment.OrderFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="this order fragment"
+        android:textSize="@dimen/_20sdp"
+        android:layout_gravity="center"
+        />
+<!--    <androidx.viewpager.widget.ViewPager-->
+<!--        android:id="@+id/viewFragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        >-->
+<!--        <android.support.design.widget.TabLayout-->
+<!--            android:id="@+id/tabLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@color/colorPrimaryDark"-->
+<!--            app:tabTextColor="#fff"/>-->
+<!--    </androidx.viewpager.widget.ViewPager>-->
 
 </FrameLayout>

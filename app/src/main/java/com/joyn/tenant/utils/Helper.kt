@@ -10,5 +10,7 @@ class Helper {
         context.startActivity(i)
     }
 
-
+    fun debuger(text: String) {
+        println("Debug : $text")
+    }
 }

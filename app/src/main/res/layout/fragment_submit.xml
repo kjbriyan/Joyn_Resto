@@ -1,28 +1,8 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.joyn.tenant.activity.fragment.OrderFragment">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="this order fragment"
-        android:textSize="@dimen/_20sdp"
-        android:layout_gravity="center"
-        />
-<!--    <androidx.viewpager.widget.ViewPager-->
-<!--        android:id="@+id/viewFragment"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        >-->
-<!--        <android.support.design.widget.TabLayout-->
-<!--            android:id="@+id/tabLayout"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:background="@color/colorPrimaryDark"-->
-<!--            app:tabTextColor="#fff"/>-->
-<!--    </androidx.viewpager.widget.ViewPager>-->
-
-</FrameLayout>
+    android:id="@+id/rv_submit_menu"
+    android:layout_height="match_parent"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    tools:context="com.joyn.tenant.activity.fragment.OrderFragment" />

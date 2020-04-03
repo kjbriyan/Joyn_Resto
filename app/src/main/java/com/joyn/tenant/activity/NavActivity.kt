@@ -7,7 +7,7 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.joyn.tenant.R
 import com.joyn.tenant.activity.fragment.ChatFragment
 import com.joyn.tenant.activity.fragment.OrderFragment
-import com.joyn.tenant.activity.fragment.SubmitFragment
+import com.joyn.tenant.activity.fragment.submit.SubmitFragment
 import kotlinx.android.synthetic.main.activity_nav.*
 
 

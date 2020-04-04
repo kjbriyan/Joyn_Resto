@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.OtpActivity"></activity>
+        <activity android:name=".activity.DetailOrderActivity"></activity>
+        <activity android:name=".activity.OtpActivity" />
         <activity
             android:name=".activity.NavActivity"
             android:theme="@style/Login" />

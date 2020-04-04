@@ -16,6 +16,7 @@ import com.joyn.tenant.activity.fragment.submit.model.MenuItem
 import com.joyn.tenant.activity.fragment.submit.model.RestoItem
 import com.joyn.tenant.activity.fragment.submit.model.TypeMenu
 import com.joyn.tenant.utils.Helper
+import com.joyn.tenant.utils.StaticData
 import id.djaka.adapterdelegatedemo.core.adapterdelegate.GenericAdapter
 import kotlinx.android.synthetic.main.fragment_submit.*
 
@@ -38,14 +39,6 @@ class SubmitFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_submit, container, false)
     }
 
-//    private val adapter = GenericAdapter(StaticData.getStaticData).apply {
-//        addDelegate(HeadRestoAdapter())
-//        addDelegate(MenuAdapter { pos ->
-//            setData(pos)
-//        })
-//    }
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initVIewModel()
         initRv()
@@ -57,14 +50,7 @@ class SubmitFragment : Fragment() {
         vm.dataStore.observe(viewLifecycleOwner, Observer(this@SubmitFragment::showData))
 
         vm.setHeadResto(
-            HeadRestoItem(
-                "https://www.dimanaja.com/assets/images/cover/2d6918b4b983eb28d2508c0ab485f66b1ee8b17e.jpg",
-                4.5,
-                "fast food",
-                "ChickBoss, Sukolilo",
-                "08.00 - 22.00 WIB",
-                "Jl. Arief Rahman Hakim No.24, Keputih, Kec. Sukolilo, Surabaya "
-            )
+            StaticData.headResto
         )
         vm.setMenu(
             TypeMenu("Food", mutableListOf<MenuItem>())
@@ -103,24 +89,13 @@ class SubmitFragment : Fragment() {
 //
         if (index == 1){
             vm.addMenu(
-                index, MenuItem(
-                    "https://cdn.pixabay.com/photo/2015/04/20/13/25/burger-731298_960_720.jpg",
-                    "Hamburger",
-                    "adalah sejenis makanan berupa roti berbentuk bundar yang diiris dua dan ditengahnya diisi dengan patty yang biasanya di ambil dari daging",
-                    25000.00,
-                    true
-                ))
+                index, StaticData.menuFood
+            )
 
         }
             else {
             vm.addMenu(
-                index, MenuItem(
-                    "https://image.shutterstock.com/image-photo/coffee-cup-milk-heart-shape-600w-254774482.jpg",
-                    "Capucino",
-                    "Minuman kopi dengan rasa yang enak",
-                    25000.00,
-                    true
-                )
+                index, StaticData.menuDrink
             )
     }
 }

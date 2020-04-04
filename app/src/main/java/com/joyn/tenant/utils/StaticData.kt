@@ -80,24 +80,10 @@ object StaticData {
             "adalah sejenis makanan berupa roti berbentuk bundar yang diiris dua dan ditengahnya diisi dengan patty yang biasanya di ambil dari daging",
             25000.00,
             true
-        ),
-        MenuItem(
-            "https://cdn.pixabay.com/photo/2015/04/20/13/25/burger-731298_960_720.jpg",
-            "Hamburger",
-            "adalah sejenis makanan berupa roti berbentuk bundar yang diiris dua dan ditengahnya diisi dengan patty yang biasanya di ambil dari daging",
-            25000.00,
-            true
         )
     )
 
-    private fun listDrink() = mutableListOf<MenuItem>(
-        MenuItem(
-            "https://image.shutterstock.com/image-photo/coffee-cup-milk-heart-shape-600w-254774482.jpg",
-            "Capucino",
-            "Minuman kopi dengan rasa yang enak",
-            25000.00,
-            true
-        ),
+     fun listDrink() = mutableListOf<MenuItem>(
         MenuItem(
             "https://image.shutterstock.com/image-photo/coffee-cup-milk-heart-shape-600w-254774482.jpg",
             "Capucino",

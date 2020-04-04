@@ -8,6 +8,7 @@ import com.joyn.tenant.activity.fragment.submit.model.HeadRestoItem
 import com.joyn.tenant.activity.fragment.submit.model.MenuItem
 import com.joyn.tenant.activity.fragment.submit.model.RestoItem
 import com.joyn.tenant.activity.fragment.submit.model.TypeMenu
+import com.joyn.tenant.utils.StaticData
 import kotlinx.coroutines.launch
 
 class SubmitVIewModel : ViewModel(){
@@ -22,6 +23,14 @@ class SubmitVIewModel : ViewModel(){
     fun setHeadResto(resto: HeadRestoItem) = viewModelScope.launch {
         _data.add(resto)
         _dataStore.value = _data
+    }
+
+    init {
+        setHeadResto(StaticData.headResto)
+        setMenu(TypeMenu("Food", StaticData.listFood()))
+        setMenu(TypeMenu("Drink", StaticData.listDrink()))
+        setMenu(TypeMenu("Dhises", mutableListOf()))
+        setMenu(TypeMenu("Snack", mutableListOf()))
     }
 
     fun setMenu(menu: TypeMenu) = viewModelScope.launch {

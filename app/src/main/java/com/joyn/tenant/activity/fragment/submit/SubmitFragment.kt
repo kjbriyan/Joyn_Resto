@@ -11,8 +11,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import com.joyn.tenant.R
 import com.joyn.tenant.activity.fragment.submit.delegate.HeadRestoAdapter
 import com.joyn.tenant.activity.fragment.submit.delegate.MenuAdapter
-import com.joyn.tenant.activity.fragment.submit.model.HeadRestoItem
-import com.joyn.tenant.activity.fragment.submit.model.MenuItem
 import com.joyn.tenant.activity.fragment.submit.model.RestoItem
 import com.joyn.tenant.activity.fragment.submit.model.TypeMenu
 import com.joyn.tenant.utils.Helper
@@ -46,18 +44,9 @@ class SubmitFragment : Fragment() {
 
     private lateinit var vm: SubmitVIewModel
     private fun initVIewModel() {
-        vm = ViewModelProvider(this).get(SubmitVIewModel::class.java)
-        vm.dataStore.observe(viewLifecycleOwner, Observer(this@SubmitFragment::showData))
-
-        vm.setHeadResto(
-            StaticData.headResto
-        )
-        vm.setMenu(
-            TypeMenu("Food", mutableListOf<MenuItem>())
-        )
-        vm.setMenu(
-            TypeMenu("Drink", mutableListOf<MenuItem>())
-        )
+        vm = ViewModelProvider(requireActivity()).get(SubmitVIewModel::class.java).apply {
+            dataStore.observe(viewLifecycleOwner, Observer(this@SubmitFragment::showData))
+        }
     }
 
     private lateinit var adapter: GenericAdapter<RestoItem>

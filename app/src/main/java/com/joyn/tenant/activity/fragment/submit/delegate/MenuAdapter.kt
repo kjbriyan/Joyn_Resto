@@ -10,9 +10,8 @@ import com.joyn.tenant.activity.fragment.submit.model.TypeMenu
 import id.djaka.adapterdelegatedemo.core.adapterdelegate.AdapterDelegate
 import kotlinx.android.synthetic.main.item_menu_resto.view.*
 
-class MenuAdapter(val onItemClick: ((menu: TypeMenu) -> Unit)? = null) :
+class MenuAdapter(private val onItemClick: ((menu: TypeMenu, index : Int) -> Unit)? = null) :
     AdapterDelegate<RestoItem> {
-
 
     override fun isForViewType(items: List<RestoItem>, position: Int): Boolean {
         return items[position] is TypeMenu
@@ -29,7 +28,7 @@ class MenuAdapter(val onItemClick: ((menu: TypeMenu) -> Unit)? = null) :
         holder: RecyclerView.ViewHolder
     ) {
         (holder as TypeMenuViewHolder).bindItem(items[position] as TypeMenu)
-        holder.itemView.setOnClickListener { onItemClick?.invoke(items[position] as TypeMenu) }
+        holder.itemView.setOnClickListener { onItemClick?.invoke(items[position] as TypeMenu, position) }
     }
 
     class TypeMenuViewHolder(view: View) : RecyclerView.ViewHolder(view) {

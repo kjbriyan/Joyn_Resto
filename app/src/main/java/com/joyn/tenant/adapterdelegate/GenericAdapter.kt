@@ -7,9 +7,14 @@ import androidx.recyclerview.widget.RecyclerView
  * Created by Djaka Pradana on 2020-01-08.
  */
 
-class GenericAdapter<T>(var items: List<T>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class GenericAdapter<T>() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val delegateManager = AdapterDelegateManager<T>()
+    private var items: List<T> = ArrayList()
+    fun addItems(items: List<T>) {
+        this.items = items
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return delegateManager.onCreateViewHolder(parent, viewType)

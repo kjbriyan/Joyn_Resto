@@ -39,10 +39,10 @@ class OrderFragment : Fragment() {
     }
     fun setFragment(){
 
-        var mFragment = FragmentAdapter(childFragmentManager)
+        val mFragment = FragmentAdapter(childFragmentManager)
         with(mFragment){
-            this?.addFragments(InprogresFragment(),"In Progres")
-            this?.addFragments(PreviousOrderFragment(),"Previous Order")
+            this.addFragments(InprogresFragment(),"In Progres")
+           this.addFragments(PreviousOrderFragment(),"Previous Order")
         }
         viewPager?.adapter = mFragment
         tblayout?.setupWithViewPager(viewPager)

@@ -1,18 +1,15 @@
 package com.joyn.tenant.activity.fragment.taborder
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-
+import androidx.fragment.app.Fragment
 import com.joyn.tenant.R
 import com.joyn.tenant.activity.adapter.RvInprogresAdapter
 import com.joyn.tenant.activity.fragment.model.InProgresModel
+import com.joyn.tenant.utils.Helper
 import kotlinx.android.synthetic.main.fragment_inprogres.*
-import kotlinx.android.synthetic.main.fragment_inprogres.view.*
 
 /**
  * A simple [Fragment] subclass.
@@ -41,13 +38,35 @@ class InprogresFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_inprogres, container, false)
-        view.rv_inprogres.setHasFixedSize(true)
-        view.rv_inprogres.layoutManager = LinearLayoutManager(activity)
-        intView()
+        return inflater.inflate(R.layout.fragment_inprogres, container, false)
 
-        return view
     }
+
+    private val adapter = RvInprogresAdapter()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val item = ArrayList<InProgresModel>()
+        item.add(data)
+        item.add(data)
+        item.add(data)
+        item.add(data)
+
+        adapter.updateData(item)
+        rv_inprogres.setHasFixedSize(true)
+        Helper().debuger("InProgress : ${item[0].nameOrdered}")
+        rv_inprogres.adapter = adapter
+    }
+
+    private val data: InProgresModel = InProgresModel(
+        "anjeng",
+        "Anjeng 2 ",
+        "15.00",
+        "utang",
+        " pxss",
+        "15000"
+    )
 
     fun intView(){
 
@@ -60,7 +79,7 @@ class InprogresFragment : Fragment() {
 
             if(listUsers.size - 1 == i){
                 // init adapter yang telah dibuat tadi
-                val adapter = RvInprogresAdapter(list)
+                //   val adapter = RvInprogresAdapter(list)
                 adapter.notifyDataSetChanged()
 
                 //tampilkan data dalam recycler view

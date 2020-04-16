@@ -4,7 +4,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class Initretrofit {
-    private val URL = "http://192.168.1.101/Restapi/index.php/api/"
+    private val URL = "http://dev.joyn-indonesia.com:2323/v1/"
 
     fun initRetrofit(): Retrofit {
         return Retrofit.Builder()

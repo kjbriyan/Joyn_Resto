@@ -16,23 +16,7 @@ import kotlinx.android.synthetic.main.fragment_inprogres.*
  */
 class InprogresFragment : Fragment() {
 
-    val list = ArrayList<InProgresModel>()
-    val listUsers = arrayOf(
-        "Google",
-        "Apple",
-        "Microsoft",
-        "Asus",
-        "Zenpone",
-        "Acer"
-    )
-    val listUsers2 = arrayOf(
-        "Google",
-        "Apple",
-        "Microsoft",
-        "Asus",
-        "uwaww",
-        "Acer"
-    )
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,9 +33,10 @@ class InprogresFragment : Fragment() {
 
         val item = ArrayList<InProgresModel>()
         item.add(data)
-        item.add(data)
-        item.add(data)
-        item.add(data)
+        item.add(data.copy(nameOrdered = "James",
+            menuOrdred = "Pecel Lele",
+            nameRider = "Rudi lohor"))
+
 
         adapter.updateData(item)
         rv_inprogres.setHasFixedSize(true)
@@ -60,33 +45,14 @@ class InprogresFragment : Fragment() {
     }
 
     private val data: InProgresModel = InProgresModel(
-        "anjeng",
-        "Anjeng 2 ",
+        "Alpinu",
+        "Joko anwar ",
         "15.00",
-        "utang",
-        " pxss",
-        "15000"
+        "not paid yet",
+        " L 1500 Pl",
+        "15000",
+        "ayam geprek"
     )
 
-    fun intView(){
-
-
-        for (i in 0 until listUsers.size){
-
-            list.add(InProgresModel(listUsers.get(i),listUsers2.get(i),
-                listUsers.get(i),listUsers2.get(i),
-                listUsers.get(i),listUsers2.get(i)))
-
-            if(listUsers.size - 1 == i){
-                // init adapter yang telah dibuat tadi
-                //   val adapter = RvInprogresAdapter(list)
-                adapter.notifyDataSetChanged()
-
-                //tampilkan data dalam recycler view
-                rv_inprogres.adapter = adapter
-            }
-
-        }
-    }
 
 }

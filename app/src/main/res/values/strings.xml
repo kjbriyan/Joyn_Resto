@@ -17,4 +17,5 @@
     <string name="order">Order</string>
     <string name="time_of_order">Time Of Order</string>
     <string name="driver">Driver :</string>
+    <string name="day_month_year">day/month/year</string>
 </resources>

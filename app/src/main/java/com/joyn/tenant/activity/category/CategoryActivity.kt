@@ -2,6 +2,7 @@ package com.joyn.tenant.activity.category
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -19,7 +20,9 @@ class CategoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_menu)
 
-        actionBar?.title = "Category"
+        supportActionBar?.title = "Category"
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val vm = ViewModelProvider(this).get(CategoryVIewModel::class.java)
         rv_category.setHasFixedSize(true)
@@ -41,5 +44,14 @@ class CategoryActivity : AppCompatActivity() {
         val intent = Intent(this, MenuActivity::class.java)
         intent.putExtra("arg", arg)
         startActivity(intent)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home){
+            finish()
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 }

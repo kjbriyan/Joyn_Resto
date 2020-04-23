@@ -1,6 +1,8 @@
 package com.joyn.tenant.activity.menu
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
@@ -24,6 +26,7 @@ class AddMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_menu2)
 
+        supportActionBar?.title = "Add menu"
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -132,6 +135,15 @@ class AddMenuActivity : AppCompatActivity() {
         val data = gson.toJson(menu)
         val mediaType = "application/json; charset=utf-8".toMediaType()
         body = data.toRequestBody(mediaType)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home){
+            finish()
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
 }

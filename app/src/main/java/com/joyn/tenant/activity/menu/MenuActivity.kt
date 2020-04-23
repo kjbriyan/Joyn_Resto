@@ -2,6 +2,7 @@ package com.joyn.tenant.activity.menu
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -26,6 +27,7 @@ class MenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_submit)
 
+        supportActionBar?.title = "Menu"
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -90,6 +92,15 @@ class MenuActivity : AppCompatActivity() {
             intent.putExtra("menu", menu)
         }
         startActivity(intent)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home){
+            finish()
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onResume() {

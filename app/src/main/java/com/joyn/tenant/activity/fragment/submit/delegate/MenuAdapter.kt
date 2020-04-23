@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.joyn.tenant.R
 import com.joyn.tenant.activity.fragment.submit.model.RestoItem
 import com.joyn.tenant.activity.fragment.submit.model.TypeMenu
+import com.joyn.tenant.utils.Helper
 import id.djaka.adapterdelegatedemo.core.adapterdelegate.AdapterDelegate
 import kotlinx.android.synthetic.main.item_menu_resto.view.*
 
@@ -36,10 +37,10 @@ class MenuAdapter(private val onItemClick: ((menu: TypeMenu, index : Int) -> Uni
         fun bindItem(data: TypeMenu) {
             itemView.tv_title_category.text = data.typeMenu
 
-            data.listMenu?.let {
-                adapter = ListFoodAdapter(it)
-                itemView.rv_list_menu.adapter = adapter
-            }
+//            data.listMenu?.let {
+//                adapter = ListFoodAdapter(it)
+//                itemView.rv_list_menu.adapter = adapter
+//            }
         }
     }
 }

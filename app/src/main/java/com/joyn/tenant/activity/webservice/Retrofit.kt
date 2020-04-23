@@ -1,4 +1,4 @@
-package com.joyn.tenant.activity.fragment.submit.webservice
+package com.joyn.tenant.activity.webservice
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

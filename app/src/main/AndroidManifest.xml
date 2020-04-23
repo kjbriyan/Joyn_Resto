@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.DetailOrderActivity"></activity>
+        <activity android:name=".activity.menu.AddMenuActivity"></activity>
+        <activity android:name=".activity.menu.MenuActivity" />
+        <activity android:name=".activity.category.CategoryActivity" />
+        <activity android:name=".activity.DetailOrderActivity" />
         <activity android:name=".activity.OtpActivity" />
         <activity
             android:name=".activity.NavActivity"

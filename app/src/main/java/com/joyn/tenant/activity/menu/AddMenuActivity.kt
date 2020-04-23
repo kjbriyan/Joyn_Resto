@@ -24,6 +24,9 @@ class AddMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_menu2)
 
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         val param = intent.getStringExtra("param") as String
         var id: String? = null
         var dataMenu: MenusItem? = null

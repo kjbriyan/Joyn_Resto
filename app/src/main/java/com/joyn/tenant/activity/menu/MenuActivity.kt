@@ -26,6 +26,9 @@ class MenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_submit)
 
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         arg = intent.getStringExtra("arg") as String
         initVIewModel()
         initRv()

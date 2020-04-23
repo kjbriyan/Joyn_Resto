@@ -1,5 +1,6 @@
 package com.joyn.tenant.activity.adapter
 
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +10,17 @@ import android.widget.Filterable
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.joyn.tenant.R
+import com.joyn.tenant.activity.DetailOrderActivity
 import com.joyn.tenant.activity.fragment.model.InProgresModel
+import com.joyn.tenant.utils.Helper
 import kotlinx.android.synthetic.main.list_order_item.view.*
+import kotlinx.android.synthetic.main.list_order_item.view.id_cv_orderitem
+import kotlinx.android.synthetic.main.list_order_item.view.tv_name
+import kotlinx.android.synthetic.main.list_order_item.view.tv_name_driver
+import kotlinx.android.synthetic.main.list_order_item.view.tv_plat_driver
+import kotlinx.android.synthetic.main.list_order_item.view.tv_price
+import kotlinx.android.synthetic.main.list_order_item.view.tv_time
+import kotlinx.android.synthetic.main.list_prevorder_item.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -45,6 +55,14 @@ class RvPrevorderAdapter :
             itemView.tv_price.text = data.totPrice
 //            itemView.tv_status_paid.text = data.paidStatus
             itemView.tv_time.text = data.timeOrder
+
+            itemView.id_cv_orderitem.setOnClickListener {
+                val i = Intent(itemView.context, DetailOrderActivity::class.java)
+                i.putExtra("total",data)
+                i.putExtra("btn","Prev")
+
+                itemView.context.startActivity(i)
+            }
 
         }
     }

@@ -18,4 +18,9 @@
     <string name="time_of_order">Time Of Order</string>
     <string name="driver">Driver :</string>
     <string name="day_month_year">day/month/year</string>
+    <string name="masukan_harga_akhir">Masukan harga akhir</string>
+    <string name="dari">Dari</string>
+    <string name="hingga">Hingga</string>
+    <string name="durasi_promo">Durasi Promo</string>
+    <string name="harga_setelah_diskon">Harga setelah diskon</string>
 </resources>

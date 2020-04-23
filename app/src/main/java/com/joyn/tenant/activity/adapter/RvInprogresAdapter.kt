@@ -31,11 +31,7 @@ class RvInprogresAdapter :
 
     override fun onBindViewHolder(holder: RvViewHolder, position: Int) {
         holder.bind(list[position])
-//        holder.itemView.setOnClickListener {
-//            val i = Intent(holder.itemView.context,DetailOrderActivity::class.java)
-//            i.putExtra("total",list)
-//            holder.itemView.context.startActivity(i)
-//        }
+
     }
 
     inner class RvViewHolder(view: View) : RecyclerView.ViewHolder(view) {

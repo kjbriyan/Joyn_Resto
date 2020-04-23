@@ -13,13 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.promo.BuatPromoActivity"></activity>
-        <activity android:name=".activity.promo.PilihMenuActivity"
-            android:parentActivityName=".activity.NavActivity"
-            android:label="Pilih Menu">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.NavActivity" />
+        <activity android:name=".activity.fragment.promo.activity.BuatPromoActivity"
+            android:theme="@style/Login"/>
+        <activity android:name=".activity.fragment.promo.activity.PilihMenuActivity"
+            android:theme="@style/Login">
+
         </activity>
         <activity android:name=".activity.DetailOrderActivity"
             android:parentActivityName=".activity.NavActivity"

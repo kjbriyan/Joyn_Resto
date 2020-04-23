@@ -1,23 +1,20 @@
 package com.joyn.tenant.activity
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.joyn.tenant.R
 import com.joyn.tenant.activity.adapter.RvDetailOrderAdapter
 import com.joyn.tenant.activity.fragment.model.InProgresModel
-import com.joyn.tenant.utils.Helper
 import kotlinx.android.synthetic.main.activity_detail_order.*
 import kotlinx.android.synthetic.main.header_detail_order.*
-import kotlinx.android.synthetic.main.item_ordered.*
-import kotlin.math.log
 
 class DetailOrderActivity : AppCompatActivity() {
     private val adapter = RvDetailOrderAdapter()
 
     val TAG = "DetailOrderActivity"
-    @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_order)
@@ -28,11 +25,7 @@ class DetailOrderActivity : AppCompatActivity() {
         rv_list_ordered.setHasFixedSize(true)
         rv_list_ordered.adapter = adapter
 
-
-        btn_paid.setOnClickListener {
-            btn_paid.text = "Finish"
-            btn_paid.setBackgroundColor(R.color.red)
-        }
+        intView()
 //        val text  = intent.getParcelableArrayListExtra<InProgresModel>("total")
 //        Log.d(TAG, "${text.size}")
 
@@ -43,6 +36,24 @@ class DetailOrderActivity : AppCompatActivity() {
 
         Log.d(TAG, dataa.menuOrdred)
 
+    }
+
+    @SuppressLint("ResourceAsColor")
+    fun intView() {
+        val btn = intent.getStringExtra("btn")
+        if (btn!=null) {
+            if (btn.equals("Prev")) {
+                btn_paid.visibility = View.GONE
+            } else {
+                Log.d(TAG,"tidak ada button")
+            }
+        }else{
+            Log.d(TAG,"null")
+            btn_paid.setOnClickListener {
+                btn_paid.text = "Finish"
+                btn_paid.setBackgroundColor(resources.getColor(R.color.textColorRed))
+            }
+        }
     }
 
     private val data = mutableListOf<InProgresModel>(

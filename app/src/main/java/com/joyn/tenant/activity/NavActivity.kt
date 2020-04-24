@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.joyn.tenant.R
+import com.joyn.tenant.activity.fragment.AcountFragment
 import com.joyn.tenant.activity.fragment.ChatFragment
 import com.joyn.tenant.activity.fragment.OrderFragment
+import com.joyn.tenant.activity.fragment.menu.Menu
 import com.joyn.tenant.activity.fragment.promo.PromoFragment
 import com.joyn.tenant.activity.fragment.submit.SubmitFragment
 import kotlinx.android.synthetic.main.activity_nav.*
@@ -50,7 +52,7 @@ class NavActivity : AppCompatActivity() {
     fun setFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.framelayout, fragment, NavActivity.javaClass.simpleName)
+            .replace(R.id.frameLayout, fragment, NavActivity.javaClass.simpleName)
             .commit()
     }
 //    fun loadfragment(fragment: Fragment?): Boolean? {

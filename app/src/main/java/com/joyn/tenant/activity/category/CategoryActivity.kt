@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.joyn.tenant.R
 import com.joyn.tenant.activity.menu.MenuActivity
-import com.joyn.tenant.utils.Helper
 import kotlinx.android.synthetic.main.activity_add_menu.*
 
 class CategoryActivity : AppCompatActivity() {
@@ -38,6 +37,10 @@ class CategoryActivity : AppCompatActivity() {
                 moveAct(it)
             }
         })
+
+        floatingActionButton.setOnClickListener {
+            
+        }
     }
 
     private fun moveAct(arg : String){
@@ -51,7 +54,6 @@ class CategoryActivity : AppCompatActivity() {
             finish()
             return true
         }
-
         return super.onOptionsItemSelected(item)
     }
 }

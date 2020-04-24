@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.joyn.tenant.R
-import com.joyn.tenant.activity.fragment.AcountFragment
 import com.joyn.tenant.activity.fragment.ChatFragment
 import com.joyn.tenant.activity.fragment.OrderFragment
 import com.joyn.tenant.activity.fragment.promo.PromoFragment
@@ -39,7 +38,7 @@ class NavActivity : AppCompatActivity() {
             when (it.id) {
                 1 -> setFragment(OrderFragment.newIntance())
                 2 -> setFragment(ChatFragment.newIntance())
-                3 -> setFragment(SubmitFragment.newIntance())
+                3 -> setFragment(Menu.newInstance())
                 4 -> setFragment(PromoFragment.newIntance())
                 5 -> setFragment(AcountFragment.newIntance())
                 else -> ""

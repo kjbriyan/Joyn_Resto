@@ -1,55 +1,47 @@
-package com.joyn.tenant.activity.fragment.submit
+package com.joyn.tenant.activity.menu
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.joyn.tenant.R
-import com.joyn.tenant.activity.category.CategoryActivity
+import com.joyn.tenant.activity.fragment.submit.SubmitVIewModel
 import com.joyn.tenant.activity.fragment.submit.delegate.FoodAdapter
 import com.joyn.tenant.activity.fragment.submit.delegate.HeadRestoAdapter
 import com.joyn.tenant.activity.fragment.submit.delegate.MenuAdapter
 import com.joyn.tenant.activity.fragment.submit.model.RestoItem
 import com.joyn.tenant.activity.fragment.submit.model.TypeMenu
+import com.joyn.tenant.activity.fragment.submit.response.MenusItem
 import com.joyn.tenant.utils.Helper
 import com.joyn.tenant.utils.StaticData
 import id.djaka.adapterdelegatedemo.core.adapterdelegate.GenericAdapter
 import kotlinx.android.synthetic.main.fragment_submit.*
 
-/**
- * A simple [Fragment] subclass.
- */
-class SubmitFragment : Fragment() {
+class MenuActivity : AppCompatActivity() {
+    private lateinit var arg: String
 
-    companion object {
-        fun newIntance(): SubmitFragment {
-            return SubmitFragment()
-        }
-    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.fragment_submit)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_submit, container, false)
-    }
+        supportActionBar?.title = "Menu"
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        arg = intent.getStringExtra("arg") as String
         initVIewModel()
         initRv()
+
+
     }
 
     private lateinit var vm: SubmitVIewModel
     private fun initVIewModel() {
-        vm = ViewModelProvider(requireActivity()).get(SubmitVIewModel::class.java).apply {
-            dataStore.observe(viewLifecycleOwner, Observer(this@SubmitFragment::showData))
-        }
+        vm = ViewModelProvider(this).get(SubmitVIewModel::class.java)
+        vm.dataStore.observe(this, Observer(this@MenuActivity::showData))
     }
 
     private lateinit var adapter: GenericAdapter<RestoItem>
@@ -59,7 +51,7 @@ class SubmitFragment : Fragment() {
         rv_submit_menu.setHasFixedSize(true)
         rv_submit_menu.addItemDecoration(
             DividerItemDecoration(
-                activity,
+                this,
                 DividerItemDecoration.VERTICAL
             )
         )
@@ -70,30 +62,50 @@ class SubmitFragment : Fragment() {
         adapter.apply {
             addItems(data)
             addDelegate(HeadRestoAdapter())
-            addDelegate(MenuAdapter { menu, index ->
-                onClickMenuAdapter(menu, index)
+            addDelegate(MenuAdapter())
+            addDelegate(FoodAdapter { param, id, menu ->
+                toAddMenu(param, id, menu)
             })
         }
-
     }
 
     private fun onClickMenuAdapter(typeMenu: TypeMenu, index: Int) {
 //
-        if (index == 1){
+        if (index == 1) {
             vm.addMenu(
                 index, StaticData.menuFood
             )
 
-        }
-            else {
+        } else {
             vm.addMenu(
                 index, StaticData.menuDrink
             )
+        }
     }
-}
 
-
-private fun setData(menu: TypeMenu, index: Int) {
-        Helper().debuger("Fragment $menu")
+    private fun toAddMenu(param: String, id: String?, menu: MenusItem?) {
+        val intent = Intent(this@MenuActivity, AddMenuActivity::class.java)
+        intent.putExtra("param", param)
+        if (param.equals("add")) {
+            intent.putExtra("id", id)
+        } else {
+            intent.putExtra("menu", menu)
+        }
+        startActivity(intent)
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home){
+            finish()
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        vm.refresh()
+    }
+
 }

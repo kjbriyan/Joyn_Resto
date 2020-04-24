@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/submitFragment">
+    <fragment
+        android:id="@+id/submitFragment"
+        android:name="com.joyn.tenant.activity.fragment.submit.SubmitFragment"
+        android:label="SubmitFragment" />
+
+    <fragment
+        android:id="@+id/addMenuFragment"
+        android:name="com.joyn.tenant.AddMenuFragment"
+        android:label="fragment_add_menu"
+        tools:layout="@layout/fragment_add_menu" />
+
+</navigation>
